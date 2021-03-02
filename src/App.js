@@ -1,6 +1,25 @@
 import logo from "./logo.svg";
+
 import "./App.css";
-import mockData from "../mockdata";
+import mockData from "./mockdata";
+
+
+////// React and react-router-dom imports:
+import { Switch, Route } from 'react-router-dom';
+
+////// Own component imports:
+import NavBar from "./Components/NavBar";
+import Hero from "./Components/Hero";
+import Home from "./Components/Home";
+import Footer from "./Components/Footer";
+import RecipeDetails from './Components/RecipeDetails';
+
+
+////// React-Bootstrap imports:
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from "react";
+
+
 
 /* MOCK DATA INFO
 
@@ -26,23 +45,38 @@ und vom hauptteil absetzen
 
 */
 
-function App() {
+
+
+
+
+const App = () => {
+
+  const [recipes, setRecipes] = useState([]); 
+  
+  const handleSetRecipes = (data) => {
+    setRecipes(data)
+    console.log('recieved recipes: ', data)
+  }
+
+  useEffect(() => {
+    fetch("https://instance-soup.herokuapp.com/recipes")
+    .then(response => response.json())
+    .then(data => handleSetRecipes(data))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Switch>
+        <Route path="/details/id">
+          <RecipeDetails />
+        </Route> 
+        <Route path="/">
+          <Home allSoupList={recipes} />
+        </Route>      
+      </Switch>
+
+      <Footer />
     </div>
   );
 }
