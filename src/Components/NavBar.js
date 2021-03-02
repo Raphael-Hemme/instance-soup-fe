@@ -9,7 +9,7 @@ import logo from '../images/instance_soup_logo.png'
 
 const NavBar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
     <Container fluid={true} className="w-100 m-0 justify-content-center">
     <Row className="w-100 m-0 justify-content-center" >
           <Col sm={12} md={10} lg={8} className="d-flex justify-content-between">

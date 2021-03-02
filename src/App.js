@@ -10,9 +10,9 @@ import { Switch, Route } from 'react-router-dom';
 ////// Own component imports:
 import NavBar from "./Components/NavBar";
 import Hero from "./Components/Hero";
+import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import RecipeDetails from './Components/RecipeDetails';
-import ControlledCarousel from './Components/ControlledCarousel';
 
 
 ////// React-Bootstrap imports:
@@ -72,7 +72,7 @@ const App = () => {
           <RecipeDetails />
         </Route> 
         <Route path="/">
-          <Hero />
+          <Home allSoupList={recipes} />
         </Route>      
       </Switch>
 
