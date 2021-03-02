@@ -17,6 +17,7 @@ import ControlledCarousel from './Components/ControlledCarousel';
 
 ////// React-Bootstrap imports:
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from "react";
 
 
 
@@ -44,7 +45,25 @@ und vom hauptteil absetzen
 
 */
 
-function App() {
+
+
+
+
+const App = () => {
+
+  const [recipes, setRecipes] = useState([]); 
+  
+  const handleSetRecipes = (data) => {
+    setRecipes(data)
+    console.log('recieved recipes: ', data)
+  }
+
+  useEffect(() => {
+    fetch("https://instance-soup.herokuapp.com/recipes")
+    .then(response => response.json())
+    .then(data => handleSetRecipes(data))
+  }, [])
+
   return (
     <div className="App">
       <NavBar />

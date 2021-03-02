@@ -12,7 +12,7 @@ const NavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container fluid={true} className="w-100 m-0 justify-content-center">
     <Row className="w-100 m-0 justify-content-center" >
-          <Col sm={12} md={8} className="d-flex justify-content-between">
+          <Col sm={12} md={10} lg={8} className="d-flex justify-content-between">
       <Navbar.Brand href="/" className="component-navbar-brand align-middle">
       <img
         alt=""

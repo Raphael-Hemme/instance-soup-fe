@@ -10,7 +10,7 @@ const Footer = () => {
     <Navbar bg="dark" variant="dark" fixed="bottom">
       <Container fluid={true} className="w-100 m-0 justify-content-center">
         <Row className="w-100 m-0 justify-content-center" >
-          <Col sm={12} md={8} className="d-flex justify-content-end">
+          <Col sm={12} md={10} lg={8} className="d-flex justify-content-end">
             <Nav>
               <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
